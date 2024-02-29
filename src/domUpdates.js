@@ -9,6 +9,7 @@ function updatePage() {
     ([fetchUser, fetchTrip]) => {
       userData = fetchUser;
       userTrips = getUsersTrips(fetchTrip);
+      console.log(userTrips)
     }
   );
 }
