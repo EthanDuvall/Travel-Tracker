@@ -1,4 +1,4 @@
-import { fetchUserData } from "./apiCalls";
+import { fetchUserData,fetchTripData } from "./apiCalls";
 let user = "travel50";
 let userData;
 
