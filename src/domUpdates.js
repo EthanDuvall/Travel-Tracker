@@ -12,7 +12,11 @@ let user = "traveler1";
 let userData, userTrips;
 /*
 <aside>
+<div>
 <h4>${trip.name}</h4>
+<p></p>
+<p></p>
+</div>
 <img src =${trip.img} alt = ${trip.alt}>
 </aside>
 */
