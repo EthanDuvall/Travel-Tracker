@@ -11,6 +11,7 @@
       <h1>Travel Tracker</h1>
     </header>
     <main>
+      
       <section class="box">
         <div class="tab">
           <aside id="tabSwap">
@@ -20,6 +21,7 @@
           <h2>Trips</h2>
           <button class="addTrip">Add New</button>
         </div>
+        
         <div id="past" class="tabContent active">
           <h3>Past Trips</h3>
           <section id="pastTrips"></section>
@@ -41,6 +43,33 @@
           <h3>Total Expenses</h3>
         </aside>
       </section>
+      <div class="pop-up-form">
+        <form class="widget" id="AddTripForm">
+          <h2 class="newTripForm">Book a New Trip</h2>
+          <label for="dateInput">Date</label>
+          <input type="date" name="dateInput" id="dateInput"required/>
+          <label for="travelers">Travelers</label>
+          <input
+            type="number"
+            name="travelers"
+            min="0"
+            id = "travelersInput"
+            required
+          />
+          <label for = "duration">Duration</label>
+          <input type = "number" name = "duration" min = "0" id = "durationInput"required/>
+          <section id = "formDisplay" tabindex="0">
+
+          </section>
+          <aside>
+            <button type = "submit" class = "submitBtn inactive">Book Trip!</button>
+            <button type="submit" class="formBtn">Find</button>
+            <button class="closeBtn">Close</button>
+          </aside>
+          
+        </form>
+        
+      </div>
     </main>
     <script src="bundle.js"></script>
   </body>

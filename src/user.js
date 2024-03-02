@@ -40,4 +40,6 @@ function getTripExpenses(destinations,trips){
   });
   return expenses
 }
+
+
 export {getUserId, getUsersTrips , getDestination, getTripIds, getTripExpenses}

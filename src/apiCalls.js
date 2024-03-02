@@ -13,4 +13,22 @@ function fetchDestinationsData (destinations){
     .then((rsp) => rsp.json())
     .then((data) => (destinations = data));
 }
-export { fetchUserData, fetchTripData, fetchDestinationsData };
+function postTrip(trip){
+  return fetch('url',{
+    method: 'POST',
+    body: JSON.stringify({
+      id:trip.id,
+      userID:trip.userId,
+      destinationID:trip.destination,
+      travelers:trip.travelers,
+      date:trip.date,
+      duration:trip.duration,
+      status:'pending',
+      suggestedActivities:[]
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+}
+export { fetchUserData, fetchTripData, fetchDestinationsData,postTrip };
