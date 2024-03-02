@@ -1,12 +1,12 @@
 function getUsersTrips(fetchTrip, id) {
-  return fetchTrip.trips.filter((tripData) => {
+  return fetchTrip.filter((tripData) => {
     return tripData.userID === id;
   });
 }
 
 function getTripIds(trips){
-  return trips.reduce((tripIds, trips) => {
-    tripIds.push(trips.id)
+  return trips.reduce((tripIds, trip) => {
+    tripIds.push(trip.destinationID)
     return tripIds
   },[])
 }

@@ -34,7 +34,7 @@ function updatePage() {
   Promise.all([fetchUserData(getUserId(user)), fetchTripData()]).then(
     ([fetchUser, fetchTrip]) => {
       userData = fetchUser;
-      userTrips = getUsersTrips(fetchTrip,userData.id);
+      userTrips = getUsersTrips(fetchTrip.trips,userData.id);
     }
   );
 }
