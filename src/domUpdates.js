@@ -1,11 +1,12 @@
 import { fetchUserData, fetchTripData,fetchDestinationsData } from "./apiCalls";
-import { getUserId, getUsersTrips, getDestination} from "./user";
+import { getUserId, getUsersTrips, getDestination,getTripExpenses} from "./user";
 
 const pastButton = document.querySelector("#pastButton")
 const pendingButton = document.querySelector("#pendingButton")
 const tabs = document.querySelector("#tabSwap")
 const pastTab = document.querySelector("#past")
 const pendingTab= document.querySelector("#pending")
+const expensesBox = document.querySelectorAll(".expenses")
 let selectedButton = pastButton
 let selectedTab = pastTab
 let user = "traveler7";
@@ -28,6 +29,7 @@ function updatePage() {
       destinations = fetchDestinations.destinations
       userTrips = getUsersTrips(fetchTrip.trips,userData.id);
       displayTrips()
+      displayExpenses()
     }
   );
 }
@@ -55,7 +57,13 @@ function displayTrips(){
       `)
   });
 }
-
+function displayExpenses(){
+  let expenses = getTripExpenses(destinations,userTrips)
+  expensesBox.forEach(expense =>{
+    let key = expense.id + "Cost"
+    expense.insertAdjacentHTML("beforeend",`<p>${expenses[key]}$</p>`)
+  })
+}
 function toggleTabs(tab,button){
   selectedTab.classList.add("inactive")  
   selectedTab.classList.remove("active")

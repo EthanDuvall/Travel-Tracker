@@ -34,9 +34,9 @@ function getTripExpenses(destinations,trips){
    lodging = destination.estimatedLodgingCostPerDay * trip.duration
    flight = destination.estimatedFlightCostPerPerson * trip.travelers
    total = flight + lodging + (flight + lodging)*.1
-   expenses.lodging += lodging
+   expenses.lodgingCost += lodging
    expenses.flightCost += flight
-   expenses.totalCost += total
+   expenses.totalCost += Math.round(total)
   });
   return expenses
 }
