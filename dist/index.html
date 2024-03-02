@@ -13,10 +13,10 @@
     <main>
       <section class = "box">
         <div class="tab">
-          <aside>
-            <button id = "pastButton" class="tablinks">Past</button>
-            <button id = "currentButton" class="tablinks active">Current</button>
-            <button id = "pendingButton" class="tablinks">Pending</button>
+          <aside id = "tabSwap">
+            <button id = "pastButton" class="past">Past</button>
+            <button id = "currentButton" class="current active">Current</button>
+            <button id = "pendingButton" class="pending">Pending</button>
           </aside>
           <h2>Trips</h2>
           <button class="addTrip">Add New</button>
@@ -33,11 +33,6 @@
         <div id="pending" class="tabContent inactive">
           <h3>Pending Trips</h3>
           <section id="pendingTrips">
-            <aside>
-              <h4>DesTrion</h4>
-              <p>Loding Cost:</p>
-              <p>Flight Cost</p>
-            </aside>
           </section>
         </div>
       </section>
