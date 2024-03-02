@@ -5,8 +5,12 @@ const currentButton = document.querySelector("#currentButton")
 
 let user = "travel1";
 let userData, userTrips;
-
-
+/*
+<aside>
+<h4>${trip.name}</h4>
+<img src =${trip.img} alt = ${trip.alt}>
+</aside>
+*/
 window.addEventListener("load", updatePage);
 
 function updatePage() {

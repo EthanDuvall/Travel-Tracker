@@ -28,6 +28,11 @@ main {
   background-color: white;
   display: flex;
   justify-content: space-between;
+  .addTrip{
+    width: 20%;
+    cursor: pointer;
+
+  }
   aside {
     display: flex;
     button {
@@ -48,9 +53,51 @@ main {
     }
   }
 }
+.tabContent{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow-y: scroll;
+    height: 85%;
+    aside{
+        margin: 10px;
+        border-radius: 2%;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(255, 255, 255);
+        img{
+            height: 100px;
+        }
+    }
+}
 .active{
     display: block;
 }
 .inactive{
     display: none;
+}
+#expensesBox{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        width: 100%;
+        background-color: white;
+        height: 12% ;
+        margin: 0;
+    }
+    aside{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 30%;
+        width: 90%;
+        margin: 15px;
+        border-radius: 2%;
+        background-color: rgb(255, 255, 255);
+        p{
+            font-size: 20px;
+        }
+    }
 }
