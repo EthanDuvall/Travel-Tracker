@@ -74,9 +74,19 @@ describe("Get users trip data", function () {
     expect(expected[2]).to.deep.equal({ destinationID: 9,userID: 3});
   });
 
+  it("Should Get Trip Ids", function () {
+    const expected = getTripIds(getUsersTrips(trips,travelerId))
+    expect(expected).to.be.an("array").with.lengthOf(3);
+    expect(expected[0]).to.deep.equal(1);
+    expect(expected[2]).to.deep.equal(9);
+    });
+
   it("Should Get The Destnation", function () {
     const expected = getDestination(9,destinations)
     expect(expected).to.deep.equal({id:9})
    
   });
+  it("Should get all trip expenses", function(){
+    
+  })
 });
