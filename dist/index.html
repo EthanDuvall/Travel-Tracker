@@ -11,32 +11,25 @@
       <h1>Travel Tracker</h1>
     </header>
     <main>
-      <section class = "box">
+      <section class="box">
         <div class="tab">
-          <aside id = "tabSwap">
-            <button id = "pastButton" class="past">Past</button>
-            <button id = "currentButton" class="current active">Current</button>
-            <button id = "pendingButton" class="pending">Pending</button>
+          <aside id="tabSwap">
+            <button id="pastButton" class="past active">Past</button>
+            <button id="pendingButton" class="pending">Pending</button>
           </aside>
           <h2>Trips</h2>
           <button class="addTrip">Add New</button>
         </div>
-        <div id="past" class="tabContent inactive">
+        <div id="past" class="tabContent active">
           <h3>Past Trips</h3>
           <section id="pastTrips"></section>
         </div>
-        <div id="current" class="tabContent active" tabindex="0">
-          <h3>Current Trips</h3>
-          <section id="currentTrips">
-          </section>
-        </div>
         <div id="pending" class="tabContent inactive">
           <h3>Pending Trips</h3>
-          <section id="pendingTrips">
-          </section>
+          <section id="pendingTrips"></section>
         </div>
       </section>
-      <section class = "box" id="expensesBox">
+      <section class="box" id="expensesBox">
         <h2>Expenses</h2>
         <aside class="expenses" id="lodging">
           <h3>Average Lodging Cost</h3>

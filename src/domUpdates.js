@@ -1,14 +1,13 @@
 import { fetchUserData, fetchTripData } from "./apiCalls";
 import { getUserId, getUsersTrips } from "./user";
 
-const currentButton = document.querySelector("#currentButton")
 const pastButton = document.querySelector("#pastButton")
 const pendingButton = document.querySelector("#pendingButton")
 const tabs = document.querySelector("#tabSwap")
-const currentTab = document.querySelector("#current")
+const pastTab = document.querySelector("#past")
 
-let selectedButton = currentButton
-let selectedTab = currentTab
+let selectedButton = pastButton
+let selectedTab = pastTab
 let user = "traveler1";
 let userData, userTrips;
 /*

@@ -59,12 +59,24 @@ main {
     text-align: center;
     overflow-y: scroll;
     height: 85%;
-    aside{
+    div{
         margin: 10px;
         border-radius: 2%;
         display: flex;
         justify-content: space-between;
         background-color: rgb(255, 255, 255);
+        text-indent: 10px;
+        aside{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            h4{
+                margin:0;
+            }
+            p{
+                margin:0    
+            }
+        }
         img{
             height: 100px;
         }
