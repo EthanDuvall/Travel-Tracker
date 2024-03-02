@@ -48,7 +48,7 @@ function displayTrips(){
       <aside>
       <h4>${destination.destination}</h4>
       <p>Travelers : ${trip.travelers}</p>
-      <p>${trip.date}</p>
+      <p>Date : ${trip.date}</p>
       </aside>
       <img src =${destination.image} alt = ${destination.alt}>
       </div>
