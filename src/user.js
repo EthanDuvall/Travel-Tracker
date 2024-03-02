@@ -4,7 +4,7 @@ function getUsersTrips(fetchTrip, id) {
   });
 }
 function getUserId(user) {
-  let userId = user.split("l");
-  return userId[1];
+  let userId = user.split("r");
+  return Number(userId[2]);
 }
 export {getUserId, getUsersTrips}
