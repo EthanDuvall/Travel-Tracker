@@ -1,25 +1,18 @@
 import { fetchUserData, fetchTripData } from "./apiCalls";
+import { getUserId, getUsersTrips } from "./user";
 let user = "travel1";
 let userData, userTrips;
 
 window.addEventListener("load", updatePage);
 
 function updatePage() {
-  Promise.all([fetchUserData(getUserId()), fetchTripData()]).then(
+  Promise.all([fetchUserData(getUserId(user)), fetchTripData()]).then(
     ([fetchUser, fetchTrip]) => {
       userData = fetchUser;
-      userTrips = getUsersTrips(fetchTrip);
+      userTrips = getUsersTrips(fetchTrip,userData.id);
     }
   );
 }
 
-function getUsersTrips(fetchTrip) {
-  return fetchTrip.trips.filter((tripData) => {
-    return tripData.userID === userData.id;
-  });
-}
 
-function getUserId() {
-  let userId = user.split("l");
-  return userId[1];
-}
+

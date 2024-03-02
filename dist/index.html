@@ -1,16 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTracker</title>
+  </head>
+  <body>
+    <header>
+      <h1>Travel Tracker</h1>
+    </header>
+    <div class="tab">
+      <h2>Trips</h2>
+      <button class="tablinks">Past</button>
+      <button class="tablinks">Current</button>
+      <button class="tablinks">Pending</button>
+      <button class = "addTrip">Add New</button>
+    </div>
+    <div id = "past" class="tabContent">
+      <h3>Past Trips</h3>
+      <section id = "pastTrips">
 
-</body>
+      </section>
+    </div>
+    <div id = "current" class ="tabContent">
+      <h3>Current Trips</h3>
+      <section id = "currentTrips">
+
+      </section>
+    </div>
+    <div id = "pending" class="tabContent">
+      <h3>Pending Trips</h3>
+      <section id = "pendingTrips">
+        <aside>
+          <img src ="https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80">
+          <h4>DesTrion</h4>
+          <p>Loding Cost:</p>
+          <p>Flight Cost</p>
+        </aside>
+      </section>
+    </div>
+    <section>
+      <h2>Expenses</h2>
+      <aside class = "expenses" id ="lodging">
+        <h3>Average Lodging Cost</h3>
+        <p>300$</p>
+      </aside>
+      <aside class = "expenses" id = "flight">
+        <h3>Average Flight Cost </h3>
+        <p>200$</p>
+      </aside>
+      <aside class = "expenses" id ="total">
+        <h3>Total Expenses</h3>
+        <p>500$</p>
+      </aside>
+    </section>
+    <script src="bundle.js"></script>
+  </body>
 </html>
