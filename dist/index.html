@@ -11,7 +11,11 @@
       <h1>Travel Tracker</h1>
     </header>
     <main>
-      <section class="box inactive">
+      <aside class = "userInfo">
+        <h2 id = "displayedUser"></h2>
+        <button id = "logout" class = "inactive">LogOut</button>
+      </aside>
+      <section class="box inactive" id = "tripBox">
         <div class="tab">
           <aside id="tabSwap">
             <button id="pastButton" class="past active">Past</button>
@@ -30,7 +34,7 @@
           <section id="pendingTrips"></section>
         </div>
       </section>
-      <section class="box inactive" id = "expenses">
+      <section class="box inactive" id = "expensesBox">
         <h2>Expenses</h2>
         <aside class="expenses" id="lodging">
           <h3>Total Lodging Cost</h3>

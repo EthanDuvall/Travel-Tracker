@@ -9,17 +9,18 @@ import {
   getUsersTrips,
   getDestination,
   getTripExpenses,
-  filterTrips,
   getCheckedDesntionation,
-  checkpass
+  checkpass,
+  getStoredUser,
+  storeUser,
+  logoutUser
 } from "./user";
 
 const pastButton = document.querySelector("#pastButton");
-const pendingButton = document.querySelector("#pendingButton");
 const tabs = document.querySelector("#tabSwap");
 const pastTab = document.querySelector("#past");
 const pendingTab = document.querySelector("#pending");
-const expensesBox = document.querySelectorAll(".expenses");
+const expensesTab = document.querySelectorAll(".expenses");
 const popUpForm = document.querySelector(".pop-up-form");
 const addTripButton = document.querySelector(".addTrip");
 const displayBoxes = document.querySelectorAll(".box");
@@ -32,15 +33,19 @@ const durationInput = document.querySelector("#durationInput");
 const findButton = document.querySelector(".formBtn");
 const submitButton = document.querySelector(".submitBtn");
 const loginButton = document.querySelector(".loginBtn")
-const usernameInput = document.querySelector("username")
-const passwordInput = document.querySelector("password")
-const passwordFeedBack = document.querySelector(".pasFeedback")
-
+const usernameInput = document.querySelector(".username")
+const passwordInput = document.querySelector(".password")
+const passwordFeedBack = document.querySelector("#pasFeedback")
+const tripBox = document.querySelector("#tripBox")
+const expensesBox = document.querySelector("#expensesBox")
+const loginForm = document.querySelector(".login")
+const displayedUser = document.querySelector("#displayedUser")
+const logoutButton = document.querySelector("#logout")
 
 let selectedButton = pastButton;
 let selectedTab = pastTab;
 let user;
-let userData, userTrips, destinations, allTrips;
+let userData, userTrips, destinations;
 
 
 addTripButton.addEventListener("click", openAddTripForm);
@@ -50,6 +55,8 @@ findButton.addEventListener("click", (evt) => {
   evt.preventDefault();
   displayAviableBookings();
 });
+
+logoutButton.addEventListener("click",logoutUser)
 
 submitButton.addEventListener("click", () => {
   let selectedDestionation = getCheckedDesntionation(desnationInput);
@@ -68,7 +75,6 @@ submitButton.addEventListener("click", () => {
 window.addEventListener("load", ()=>{
   if(getStoredUser()){
     user = getStoredUser()
-    unhideBoxs()
     updatePage()
   }
 })
@@ -77,10 +83,12 @@ window.addEventListener("load", ()=>{
 loginButton.addEventListener("click",(evt)=>{
   evt.preventDefault()
   if(checkpass(passwordInput.value)){
-    storeUser(user.value)
+    storeUser(usernameInput.value)
+    user = getStoredUser()
     updatePage()
   }else{
-    passwordFeedBack.classList.remove.inactive
+    passwordFeedBack.classList.remove("inactive")
+    resetForm()
   }
 
 })
@@ -93,13 +101,13 @@ tabs.addEventListener("click", (evt) => {
 });
 
 function updatePage() {
+  unhideBoxs()
   Promise.all([
     fetchUserData(getUserId(user)),
     fetchTripData(),
     fetchDestinationsData(),
   ]).then(([fetchUser, fetchTrip, fetchDestinations]) => {
     userData = fetchUser;
-    allTrips = fetchTrip.trips;
     destinations = fetchDestinations.destinations;
     userTrips = getUsersTrips(fetchTrip.trips, userData.id);
     displayTrips();
@@ -135,7 +143,7 @@ function displayTrips() {
 }
 function displayExpenses() {
   let expenses = getTripExpenses(destinations, userTrips);
-  expensesBox.forEach((expense) => {
+  expensesTab.forEach((expense) => {
     let key = expense.id + "Cost";
     expense.insertAdjacentHTML("beforeend", `<p>${expenses[key]}$</p>`);
   });
@@ -206,5 +214,15 @@ function displayDestinations(tripVaule) {
 }
 
 function unhideBoxs(){
+  tripBox.classList.remove("inactive")
+  expensesBox.classList.remove("inactive")
+  expensesBox.classList.add("expensesBox")
+  loginForm.style.display = "none"
+  displayedUser.innerHTML = `${user}`
+  logoutButton.classList.remove("inactive")
+}
 
+function resetForm(){
+  passwordInput.value = ""
+  
 }

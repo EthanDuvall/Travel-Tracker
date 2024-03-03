@@ -199,3 +199,14 @@ main {
     
     }
 }
+.userInfo{
+  position: absolute;
+  top:0%;
+  left:80%;
+  display: flex;
+  justify-content: space-evenly;
+  width: 285px;
+  h2{
+    margin-top: 5px;
+  }
+}

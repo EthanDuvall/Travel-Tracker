@@ -60,6 +60,10 @@ function checkpass(pass) {
 function getStoredUser() {
   return sessionStorage.getItem("user");
 }
+function logoutUser(){
+  sessionStorage.clear()
+  location.reload()
+}
 
 export {
   getUserId,
@@ -71,4 +75,5 @@ export {
   storeUser,
   checkpass,
   getStoredUser,
+  logoutUser
 };
