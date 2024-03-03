@@ -11,8 +11,7 @@
       <h1>Travel Tracker</h1>
     </header>
     <main>
-      
-      <section class="box">
+      <section class="box inactive">
         <div class="tab">
           <aside id="tabSwap">
             <button id="pastButton" class="past active">Past</button>
@@ -21,7 +20,7 @@
           <h2>Trips</h2>
           <button class="addTrip">Add New</button>
         </div>
-        
+
         <div id="past" class="tabContent active">
           <h3>Past Trips</h3>
           <section id="pastTrips"></section>
@@ -31,10 +30,10 @@
           <section id="pendingTrips"></section>
         </div>
       </section>
-      <section class="box" id="expensesBox">
+      <section class="box inactive" id = "expenses">
         <h2>Expenses</h2>
         <aside class="expenses" id="lodging">
-          <h3> Total Lodging Cost</h3>
+          <h3>Total Lodging Cost</h3>
         </aside>
         <aside class="expenses" id="flight">
           <h3>Total Flight Cost</h3>
@@ -44,31 +43,48 @@
         </aside>
       </section>
       <div class="pop-up-form">
-        <form class="widget" id="AddTripForm">
+        <form id="AddTripForm">
           <h2 class="newTripForm">Book a New Trip</h2>
           <label for="dateInput">Date</label>
-          <input type="date" name="dateInput" id="dateInput"required/>
+          <input type="date" name="dateInput" id="dateInput" required />
           <label for="travelers">Travelers</label>
           <input
             type="number"
             name="travelers"
             min="0"
-            id = "travelersInput"
+            id="travelersInput"
             required
           />
-          <label for = "duration">Duration</label>
-          <input type = "number" name = "duration" min = "0" id = "durationInput"required/>
-          <section id = "formDisplay" tabindex="0">
-
-          </section>
+          <label for="duration">Duration</label>
+          <input
+            type="number"
+            name="duration"
+            min="0"
+            id="durationInput"
+            required
+          />
+          <section id="formDisplay" tabindex="0"></section>
           <aside>
-            <button type = "submit" class = "submitBtn inactive">Book Trip!</button>
+            <button type="submit" class="submitBtn inactive">Book Trip!</button>
             <button type="submit" class="formBtn">Find</button>
             <button class="closeBtn">Close</button>
           </aside>
-          
         </form>
-        
+      </div>
+      <div class="login">
+        <form class="loginForm">
+          <h2>Login</h2>
+          <aside>
+            <label for="username"> Username :</label>
+            <input type="text" name="username" required />
+          </aside>
+          <aside>
+            <label for="password">Password :</label>
+            <input type="password" name="password" />
+            <p class = "inactive" id = "pasFeedback">Wrong Password</p>
+          </aside>
+          <button type="submit" class="loginBtn">Login</button>
+        </form>
       </div>
     </main>
     <script src="bundle.js"></script>

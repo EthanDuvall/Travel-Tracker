@@ -44,7 +44,7 @@ findButton.addEventListener("click", (evt) => {
   evt.preventDefault();
   displayAviableBookings();
 });
-submitButton.addEventListener("click", (evt) => {
+submitButton.addEventListener("click", () => {
   let selectedDestionation = getCheckedDesntionation();
   let desnationId = Number(selectedDestionation.id)
   let newTrip = {
