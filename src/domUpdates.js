@@ -10,6 +10,8 @@ import {
   getDestination,
   getTripExpenses,
   filterTrips,
+  getCheckedDesntionation,
+  checkpass
 } from "./user";
 
 const pastButton = document.querySelector("#pastButton");
@@ -29,13 +31,17 @@ const travelerInput = document.querySelector("#travelersInput");
 const durationInput = document.querySelector("#durationInput");
 const findButton = document.querySelector(".formBtn");
 const submitButton = document.querySelector(".submitBtn");
+const loginButton = document.querySelector(".loginBtn")
+const usernameInput = document.querySelector("username")
+const passwordInput = document.querySelector("password")
+const passwordFeedBack = document.querySelector(".pasFeedback")
+
 
 let selectedButton = pastButton;
 let selectedTab = pastTab;
-let user = "traveler7";
+let user;
 let userData, userTrips, destinations, allTrips;
 
-window.addEventListener("load", updatePage);
 
 addTripButton.addEventListener("click", openAddTripForm);
 closeButton.addEventListener("click", closeAddTripForm);
@@ -44,8 +50,9 @@ findButton.addEventListener("click", (evt) => {
   evt.preventDefault();
   displayAviableBookings();
 });
+
 submitButton.addEventListener("click", () => {
-  let selectedDestionation = getCheckedDesntionation();
+  let selectedDestionation = getCheckedDesntionation(desnationInput);
   let desnationId = Number(selectedDestionation.id)
   let newTrip = {
     id: Date.now(),
@@ -57,6 +64,28 @@ submitButton.addEventListener("click", () => {
   };
   postTrip(newTrip)
 });
+
+window.addEventListener("load", ()=>{
+  if(getStoredUser()){
+    user = getStoredUser()
+    unhideBoxs()
+    updatePage()
+  }
+})
+
+
+loginButton.addEventListener("click",(evt)=>{
+  evt.preventDefault()
+  if(checkpass(passwordInput.value)){
+    storeUser(user.value)
+    updatePage()
+  }else{
+    passwordFeedBack.classList.remove.inactive
+  }
+
+})
+
+
 tabs.addEventListener("click", (evt) => {
   let tab = evt.target.closest("button");
   let selectedSection = document.querySelector(`#${tab.classList[0]}`);
@@ -77,17 +106,8 @@ function updatePage() {
     displayExpenses();
   });
 }
-function getStoredUser() {
-  //sessionStorage.setItem("user",userInput.value)
-  //sessionStorage.getItem("user")
-}
-function getCheckedDesntionation() {
-  let foundDestionation;
-  desnationInput.forEach((destination) => {
-    if (destination.checked) foundDestionation = destination;
-  });
-  return foundDestionation;
-}
+
+
 function displayTrips() {
   let tab;
   let destination;
@@ -184,15 +204,7 @@ function displayDestinations(tripVaule) {
     );
   });
 }
-/*
-<div>
-            <label for="destination">${desntination.name}</label>
-            <input type="radio" name="destination" id="${desnation.id}" />
-            <aside>
-            <p></p>
-            <p></p>
-            <p></p>
-            </aside>
-              <img src = ${desntination.image} alt = ${destination.alt}>
-            </div>
-            */
+
+function unhideBoxs(){
+
+}
