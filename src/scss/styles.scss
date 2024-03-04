@@ -8,7 +8,7 @@ header {
   }
 }
 body {
-background-color:lightgrey;
+  background-color: lightgrey;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -28,10 +28,9 @@ main {
   background-color: white;
   display: flex;
   justify-content: space-between;
-  .addTrip{
+  .addTrip {
     width: 20%;
     cursor: pointer;
-
   }
   aside {
     display: flex;
@@ -43,74 +42,136 @@ main {
       transition: 0.3s;
       background-color: white;
       &:hover,
-      &:focus{
-       background-color: rgb(239, 239, 114) ;
-       border:solid;
+      &:focus {
+        background-color: rgb(239, 239, 114);
+        border: solid;
       }
-      &.active{
+      &.active {
         background-color: skyblue;
       }
     }
   }
 }
-.tabContent{
+.tabContent {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow-y: scroll;
+  height: 85%;
+  div {
+    margin: 10px;
+    border-radius: 2%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    text-indent: 10px;
+    aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      text-align: start;
+      h4 {
+        margin: 0;
+      }
+      p {
+        margin: 0;
+      }
+    }
+    img {
+      height: 100px;
+    }
+  }
+}
+.active {
+  display: block;
+}
+.inactive {
+  display: none;
+}
+#expensesBox {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    width: 100%;
+    background-color: white;
+    height: 12%;
+    margin: 0;
+  }
+  aside {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30%;
+    width: 90%;
+    margin: 15px;
+    border-radius: 2%;
+    background-color: rgb(255, 255, 255);
+    p {
+      font-size: 20px;
+    }
+  }
+}
+.pop-up-form {
+  display: none;
+
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  background-color: skyblue;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 30%;
+    height: 650px;
+    width: 800px;
+    button{
+      height: 50px;
+      width: 100px;
+    }
+    section {
+    margin:10px;
     display: flex;
     flex-direction: column;
     text-align: center;
     overflow-y: scroll;
-    height: 85%;
-    div{
-        margin: 10px;
-        border-radius: 2%;
+    height: 60%;
+    width: 70%;
+    div {
+      margin: 10px;
+      border-radius: 2%;
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(255, 255, 255);
+      text-indent: 10px;
+      button{
+        height: 50%;
+        width: 20%;
+        margin-top:20px;
+        margin-left: 20px;
+      }
+      aside {
         display: flex;
-        justify-content: space-between;
-        background-color: rgb(255, 255, 255);
-        text-indent: 10px;
-        aside{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            text-align: start;
-            h4{
-                margin:0;
-            }
-            p{
-                margin:0    
-            }
-        }
-        img{
-            height: 100px;
-        }
-    }
-}
-.active{
-    display: block;
-}
-.inactive{
-    display: none;
-}
-#expensesBox{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h2{
-        width: 100%;
-        background-color: white;
-        height: 12% ;
-        margin: 0;
-    }
-    aside{
-        display: flex;
+        flex-direction: column;
         justify-content: space-evenly;
-        align-items: center;
-        height: 30%;
-        width: 90%;
-        margin: 15px;
-        border-radius: 2%;
-        background-color: rgb(255, 255, 255);
-        p{
-            font-size: 20px;
+        text-align: start;
+        width: 40%;
+        h4 {
+          margin: 0;
         }
+        p {
+          margin: 0;
+        }
+      }
+      img {
+        height: 100px;
+      }
     }
+  }
+  }
+  
 }
