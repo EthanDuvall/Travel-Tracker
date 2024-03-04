@@ -204,7 +204,8 @@ function displayDestinations(tripVaule) {
         <p>Flight Cost : ${
           desntination.estimatedFlightCostPerPerson * tripVaule.traveler
         }$</p>
-        <p>Estimated Total : ${total} $</p>
+        <p>Estimated Total : ${total} $ </p>
+        <p>(With 10% agency fee)</p>
       </aside>
       <img src = ${desntination.image} alt = ${desntination.alt}>
     </div>
