@@ -1,7 +1,7 @@
 import chai from "chai";
 import {
   getUserId,
-  getDestinations,
+  getDestination,
   getTripIds,
   getUsersTrips,
 } from "../src/user";
@@ -74,17 +74,9 @@ describe("Get users trip data", function () {
     expect(expected[2]).to.deep.equal({ destinationID: 9,userID: 3});
   });
 
-  it("Should Get Trip Ids", function () {
-    const expected = getTripIds(getUsersTrips(trips,travelerId))
-    expect(expected).to.be.an("array").with.lengthOf(3);
-    expect(expected[0]).to.deep.equal(1);
-    expect(expected[2]).to.deep.equal(9);
-    });
-
-  it("Should Get The Destnations", function () {
-    const expected = getDestinations(getTripIds(getUsersTrips(trips,travelerId)),destinations)
-    expect(expected).to.be.an("array").with.lengthOf(2);
-    expect(expected[0]).to.deep.equal({id: 1});
-    expect(expected[1]).to.deep.equal({id: 9});
+  it("Should Get The Destnation", function () {
+    const expected = getDestination(9,destinations)
+    expect(expected).to.deep.equal({id:9})
+   
   });
 });

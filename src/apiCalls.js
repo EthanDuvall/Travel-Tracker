@@ -8,4 +8,9 @@ function fetchTripData(tripData) {
     .then((rsp) => rsp.json())
     .then((data) => (tripData = data));
 }
-export { fetchUserData, fetchTripData };
+function fetchDestinationsData (destinations){
+  return fetch("http://localhost:3001/api/v1/destinations	")
+    .then((rsp) => rsp.json())
+    .then((data) => (destinations = data));
+}
+export { fetchUserData, fetchTripData, fetchDestinationsData };
