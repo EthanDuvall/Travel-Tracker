@@ -88,7 +88,7 @@ main {
 .inactive {
   display: none;
 }
-#expensesBox {
+.expensesBox {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -174,4 +174,39 @@ main {
   }
   }
   
+}
+.login{
+  display: flex;
+  position: absolute;
+  background-color: skyblue;
+  text-align: center;
+  top: 20%;
+  left: 35%;
+    form{
+      width: 380px;
+      height: 479px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      p{
+        color:red
+      }
+       button{
+        width: 100px;
+        height: 50px;
+       }
+    
+    }
+}
+.userInfo{
+  position: absolute;
+  top:0%;
+  left:80%;
+  display: flex;
+  justify-content: space-evenly;
+  width: 285px;
+  h2{
+    margin-top: 5px;
+  }
 }

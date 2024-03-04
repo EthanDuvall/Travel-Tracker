@@ -4,17 +4,17 @@ function getUsersTrips(fetchTrip, id) {
   });
 }
 
-function getTripIds(trips){
+function getTripIds(trips) {
   return trips.reduce((tripIds, trip) => {
-    tripIds.push(trip.destinationID)
-    return tripIds
-  },[])
+    tripIds.push(trip.destinationID);
+    return tripIds;
+  }, []);
 }
 
-function getDestination(tripId,destinations){
+function getDestination(tripId, destinations) {
   return destinations.find((destination) => {
-    return tripId === destination.id
-  })
+    return tripId === destination.id;
+  });
 }
 
 function getUserId(user) {
@@ -22,24 +22,58 @@ function getUserId(user) {
   return Number(userId[2]);
 }
 
-function getTripExpenses(destinations,trips){
-  let destination,lodging,flight,total
+function getTripExpenses(destinations, trips) {
+  let destination, lodging, flight, total;
   let expenses = {
-    lodgingCost:0,
-    flightCost:0,
-    totalCost:0
-  }
-  trips.forEach(trip => {
-   destination = getDestination(trip.destinationID,destinations)
-   lodging = destination.estimatedLodgingCostPerDay * trip.duration
-   flight = destination.estimatedFlightCostPerPerson * trip.travelers
-   total = flight + lodging + (flight + lodging)*.1
-   expenses.lodgingCost += lodging
-   expenses.flightCost += flight
-   expenses.totalCost += Math.round(total)
+    lodgingCost: 0,
+    flightCost: 0,
+    totalCost: 0,
+  };
+  trips.forEach((trip) => {
+    destination = getDestination(trip.destinationID, destinations);
+    lodging = destination.estimatedLodgingCostPerDay * trip.duration;
+    flight = destination.estimatedFlightCostPerPerson * trip.travelers;
+    total = flight + lodging + (flight + lodging) * 0.1;
+    expenses.lodgingCost += lodging;
+    expenses.flightCost += flight;
+    expenses.totalCost += Math.round(total);
   });
-  return expenses
+  return expenses;
 }
 
+function getCheckedDesntionation(desnationInput) {
+  let foundDestionation;
+  desnationInput.forEach((destination) => {
+    if (destination.checked) foundDestionation = destination;
+  });
+  return foundDestionation;
+}
 
-export {getUserId, getUsersTrips , getDestination, getTripIds, getTripExpenses}
+function storeUser(user) {
+  sessionStorage.setItem("user", user);
+}
+
+function checkpass(pass) {
+  return pass === "travel";
+}
+
+function getStoredUser() {
+  return sessionStorage.getItem("user");
+}
+function logoutUser(){
+  sessionStorage.clear()
+  location.reload()
+}
+
+export {
+  getUserId,
+  getUsersTrips,
+  getDestination,
+  getTripIds,
+  getTripExpenses,
+  getCheckedDesntionation,
+  storeUser,
+  checkpass,
+  getStoredUser,
+  logoutUser
+};
