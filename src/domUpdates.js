@@ -41,6 +41,7 @@ const expensesBox = document.querySelector("#expensesBox")
 const loginForm = document.querySelector(".login")
 const displayedUser = document.querySelector("#displayedUser")
 const logoutButton = document.querySelector("#logout")
+const userDisplay = document.querySelector(".userInfo")
 
 let selectedButton = pastButton;
 let selectedTab = pastTab;
@@ -204,7 +205,8 @@ function displayDestinations(tripVaule) {
         <p>Flight Cost : ${
           desntination.estimatedFlightCostPerPerson * tripVaule.traveler
         }$</p>
-        <p>Estimated Total : ${total} $</p>
+        <p>Estimated Total : ${total} $ </p>
+        <p>(With 10% agency fee)</p>
       </aside>
       <img src = ${desntination.image} alt = ${desntination.alt}>
     </div>
@@ -219,7 +221,7 @@ function unhideBoxs(){
   expensesBox.classList.add("expensesBox")
   loginForm.style.display = "none"
   displayedUser.innerHTML = `${user}`
-  logoutButton.classList.remove("inactive")
+  userDisplay.style.display = "flex"
 }
 
 function resetForm(){
