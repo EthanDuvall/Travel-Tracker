@@ -12,8 +12,8 @@
     </header>
     <main>
       <aside class = "userInfo">
-        <h2 id = "displayedUser"></h2>
-        <button id = "logout" class = "inactive">LogOut</button>
+        <h2 id = "displayedUser"> waiting for traveler...</h2>
+        <button id = "logout" >LogOut</button>
       </aside>
       <section class="box inactive" id = "tripBox">
         <div class="tab">
@@ -51,7 +51,7 @@
           <h2 class="newTripForm">Book a New Trip</h2>
           <label for="dateInput">Date</label>
           <input type="date" name="dateInput" id="dateInput" required />
-          <label for="travelers">Travelers</label>
+          <label for="travelersInput">Travelers</label>
           <input
             type="number"
             name="travelers"
@@ -59,7 +59,7 @@
             id="travelersInput"
             required
           />
-          <label for="duration">Duration</label>
+          <label for="durationInput">Duration</label>
           <input
             type="number"
             name="duration"
@@ -80,11 +80,11 @@
           <h2>Login</h2>
           <aside>
             <label for="username"> Username :</label>
-            <input type="text" name="username" class= "username" required />
+            <input type="text" id="username" class= "username" required />
           </aside>
           <aside>
             <label for="password">Password :</label>
-            <input type="password" name="password" class = "password" />
+            <input type="password" id="password" class = "password" />
             <p class = "inactive" id = "pasFeedback">Wrong Password</p>
           </aside>
           <button type="submit" class="loginBtn">Login</button>
