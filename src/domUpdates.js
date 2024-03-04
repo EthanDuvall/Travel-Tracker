@@ -58,7 +58,7 @@ findButton.addEventListener("click", (evt) => {
 
 logoutButton.addEventListener("click",logoutUser)
 
-submitButton.addEventListener("click", () => {
+submitButton.addEventListener("click", (evt) => {
   let selectedDestionation = getCheckedDesntionation(desnationInput);
   let desnationId = Number(selectedDestionation.id)
   let newTrip = {
@@ -169,7 +169,7 @@ function openAddTripForm() {
 function closeAddTripForm() {
   popUpForm.style.display = "none";
   displayBoxes.forEach((box) => {
-    box.style.filter = "blur(none)";
+    box.style.filter = "none";
   });
 }
 
@@ -224,5 +224,5 @@ function unhideBoxs(){
 
 function resetForm(){
   passwordInput.value = ""
-  
+
 }
