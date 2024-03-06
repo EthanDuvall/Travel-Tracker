@@ -114,6 +114,8 @@ function updatePage() {
     userTrips = getUsersTrips(fetchTrip.trips, userData.id);
     displayTrips();
     displayExpenses();
+  }).catch(error => {
+    displayError()
   });
 }
 
