@@ -7,6 +7,7 @@
     <title>TravelTracker</title>
   </head>
   <body>
+    <p id = "error" class = "inactive">Error Server Is Down </p>
     <header>
       <h1>Travel Tracker</h1>
     </header>
@@ -84,7 +85,7 @@
           </aside>
           <aside>
             <label for="password">Password :</label>
-            <input type="password" id="password" class = "password" />
+            <input type="password" id="password" class = "password" required/>
             <p class = "inactive" id = "pasFeedback">Wrong Password</p>
           </aside>
           <button type="submit" class="loginBtn">Login</button>

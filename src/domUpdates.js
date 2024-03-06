@@ -32,7 +32,6 @@ const travelerInput = document.querySelector("#travelersInput");
 const durationInput = document.querySelector("#durationInput");
 const findButton = document.querySelector(".formBtn");
 const submitButton = document.querySelector(".submitBtn");
-const loginButton = document.querySelector(".loginBtn")
 const usernameInput = document.querySelector(".username")
 const passwordInput = document.querySelector(".password")
 const passwordFeedBack = document.querySelector("#pasFeedback")
@@ -42,6 +41,7 @@ const loginForm = document.querySelector(".login")
 const displayedUser = document.querySelector("#displayedUser")
 const logoutButton = document.querySelector("#logout")
 const userDisplay = document.querySelector(".userInfo")
+const errorMessage = document.querySelector("#error")
 
 let selectedButton = pastButton;
 let selectedTab = pastTab;
@@ -59,7 +59,7 @@ findButton.addEventListener("click", (evt) => {
 
 logoutButton.addEventListener("click",logoutUser)
 
-submitButton.addEventListener("click", (evt) => {
+popUpForm.addEventListener("submit", (evt) => {
   let selectedDestionation = getCheckedDesntionation(desnationInput);
   let desnationId = Number(selectedDestionation.id)
   let newTrip = {
@@ -81,7 +81,7 @@ window.addEventListener("load", ()=>{
 })
 
 
-loginButton.addEventListener("click",(evt)=>{
+loginForm.addEventListener("submit",(evt)=>{
   evt.preventDefault()
   if(checkpass(passwordInput.value)){
     storeUser(usernameInput.value)
@@ -113,6 +113,8 @@ function updatePage() {
     userTrips = getUsersTrips(fetchTrip.trips, userData.id);
     displayTrips();
     displayExpenses();
+  }).catch(error => {
+    displayError()
   });
 }
 
@@ -228,3 +230,14 @@ function resetForm(){
   passwordInput.value = ""
 
 }
+
+function displayError(){
+  tripBox.classList.add("inactive")
+  expensesBox.classList.add("inactive")
+  expensesBox.classList.remove("expensesBox")
+  loginForm.style.display = "none"
+  errorMessage.classList.remove("inactive")
+
+}
+
+export {displayError}

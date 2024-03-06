@@ -210,3 +210,17 @@ main {
     margin-top: 5px;
   }
 }
+
+#error{
+  background-color: rgb(231, 68, 68);
+  font-weight: 900;
+  width: 100%;
+  padding-top:300px;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1000000;
+  height: 100%;
+  margin:0;
+  font-size: 100px;
+}
