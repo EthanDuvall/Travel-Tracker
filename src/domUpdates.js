@@ -42,6 +42,7 @@ const loginForm = document.querySelector(".login")
 const displayedUser = document.querySelector("#displayedUser")
 const logoutButton = document.querySelector("#logout")
 const userDisplay = document.querySelector(".userInfo")
+const errorMessage = document.querySelector("#error")
 
 let selectedButton = pastButton;
 let selectedTab = pastTab;
@@ -228,3 +229,14 @@ function resetForm(){
   passwordInput.value = ""
 
 }
+
+function displayError(){
+  tripBox.classList.add("inactive")
+  expensesBox.classList.add("inactive")
+  expensesBox.classList.remove("expensesBox")
+  loginForm.style.display = "none"
+  errorMessage.classList.remove("inactive")
+
+}
+
+export {displayError}
