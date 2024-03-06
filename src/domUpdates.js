@@ -32,7 +32,6 @@ const travelerInput = document.querySelector("#travelersInput");
 const durationInput = document.querySelector("#durationInput");
 const findButton = document.querySelector(".formBtn");
 const submitButton = document.querySelector(".submitBtn");
-const loginButton = document.querySelector(".loginBtn")
 const usernameInput = document.querySelector(".username")
 const passwordInput = document.querySelector(".password")
 const passwordFeedBack = document.querySelector("#pasFeedback")
