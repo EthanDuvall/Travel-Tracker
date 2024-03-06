@@ -60,7 +60,7 @@ findButton.addEventListener("click", (evt) => {
 
 logoutButton.addEventListener("click",logoutUser)
 
-submitButton.addEventListener("click", (evt) => {
+popUpForm.addEventListener("submit", (evt) => {
   let selectedDestionation = getCheckedDesntionation(desnationInput);
   let desnationId = Number(selectedDestionation.id)
   let newTrip = {
@@ -82,7 +82,7 @@ window.addEventListener("load", ()=>{
 })
 
 
-loginButton.addEventListener("click",(evt)=>{
+loginForm.addEventListener("submit",(evt)=>{
   evt.preventDefault()
   if(checkpass(passwordInput.value)){
     storeUser(usernameInput.value)
